@@ -1,26 +1,24 @@
-// arraylist.h
-
-#ifndef ARRAYLIST_H
-#define ARRAYLIST_H
+#ifndef DYNAMIC_ARRAY_H
+#define DYNAMIC_ARRAY_H
 
 #include <stddef.h> // For size_t
 
 typedef struct
 {
-  int *data;
+  void **data;
   size_t size;
   size_t capacity;
 } ArrayList;
 
 // Function prototypes
 ArrayList *create_array_list(size_t initial_capacity);
-void add_element(ArrayList *list, int element);
-int get_element(ArrayList *list, size_t index);
+void add_element(ArrayList *list, void *element);
+void *get_element(ArrayList *list, size_t index);
 void remove_element(ArrayList *list, size_t index);
 void free_array_list(ArrayList *list);
 void resize_if_needed(ArrayList *list);
 void print_array(const ArrayList *list);
-void set_element(ArrayList *list, size_t index, int value);
+void set_element(ArrayList *list, size_t index, void *value);
 void reverse_array_list(ArrayList *list);
 
-#endif // ARRAYLIST_H
+#endif // DYNAMIC_ARRAY_H
